@@ -37,5 +37,5 @@ jobs:
 
       - name: compile
         runs: |
-          - echo -e "${YELLOW}Analyzing Legobot code...${NC}" && pylint --errors-only ./testing/*.py
-
+          echo -e "${YELLOW}Analyzing Legobot code...${NC}" && pylint --errors-only ./testing/*.py
+          echo "a"
