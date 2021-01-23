@@ -1,4 +1,4 @@
-name: legobot
+name: Legobot
 
 on:
   push:
@@ -29,13 +29,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade pylint
 
-      - name: move files
+      - name: Set Up Testing Folder
         run: |
           mkdir ./testing
           cp ./commons/* ./testing/
           cp ./legobot/* ./testing/
 
-      - name: compile
+      - name: List Staged Files
         run: |
-          echo -e "${YELLOW}Analyzing Legobot code...${NC}" && pylint --errors-only ./testing/*.py
           ls ./testing/
+
+      - name: Check for errors
+        run: |
+          echo -e "Analyzing Legobot code...${NC}" && pylint --errors-only ./testing/*.py
