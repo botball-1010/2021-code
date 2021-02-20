@@ -14,9 +14,6 @@ toph_right = 0
 toph_left = 1
     
 black = 2000
-    
-# def time_follow(time):
-
 
 def stop(sleep_time=0):
     move(0, 0)
@@ -65,6 +62,15 @@ def main():
     KIPR.set_servo_position(0, bottom_pos)
     move(50, 50)
     KIPR.msleep(3000)
+    
+    line_follow(13000)
+    stop(100)
+    
+    move(50, 0)
+    KIPR.msleep(2900)
+    
+    move(50, 50)
+    KIPR.msleep(1500)
 if __name__== "__main__":
     sys.stdout = os.fdopen(sys.stdout.fileno(),"w",0)
     main()
